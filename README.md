@@ -1,1 +1,1 @@
-# curso-python-academia-plan-san-marcos
+# Curso de Python de la academia Plan San Marcos
