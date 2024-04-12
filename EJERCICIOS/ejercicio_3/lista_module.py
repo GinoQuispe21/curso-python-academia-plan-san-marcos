@@ -166,4 +166,19 @@ def search_element():
     # y la segunda opcion sea buscar el valor de un elemento por su indice
     # Hacer control de errores: try y excpet
     # ADICIONAL: Si la lista tiene numeros repetidos, retornar todos sus indices
-    pass
+    option = 1
+    element_searched = 1
+    index_searched = 2
+    if option == 1: # La busqueda de un indice por su valor
+        if numbers_list.count(element_searched) > 1:
+            list_indix = []
+            for index, number in enumerate(numbers_list):
+                if number == element_searched:
+                    list_indix.append(index)
+            print(f"Los indices donde se encuentra el valor son: {list_indix}")
+        else:
+            index = numbers_list.index(element_searched)
+            print(f"El indice del elemento buscado es: {index}")
+    else:
+        value = numbers_list[index_searched]
+        print(value)
