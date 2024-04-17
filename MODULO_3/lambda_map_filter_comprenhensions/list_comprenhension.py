@@ -16,3 +16,16 @@ lista_numeros_1 = [10, 21, 30, 14, 12]
 lista_numeros_2 = [12, 22, 30, 15, 29]
 numeros_iguales = [number1 for number1 in lista_numeros_1 for number2 in lista_numeros_2 if number1 == number2]
 print(numeros_iguales)
+
+lista_aux = [element + 1 for element in {1: 10, 2: 20}.values()]
+print(lista_aux)
+
+tupla_1 = (21, 100, 40, 31, 4, 15)
+lista_numeros_3 = [element + 100 for element in tupla_1 if element > 30]
+print(lista_numeros_3)
+
+lista_aux_numeros_3 = []
+for element in tupla_1:
+    if element > 30:
+        lista_aux_numeros_3.append(element + 100)
+print(lista_aux_numeros_3)
