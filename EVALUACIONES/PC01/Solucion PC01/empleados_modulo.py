@@ -1,4 +1,29 @@
-registro_empleados = {}
+registro_empleados = {
+    1: {
+         "nombre_completo": "Gino Quispe Calixto",
+         "dni": 76871372,
+         "telefono": 975901372,
+         "tiempo_trabajando": 15,
+         "cargo": "Vigilante",
+         "salario": 1_400
+    },
+    21: {
+         "nombre_completo": "Rodrigo Ramirez Bracamonte",
+         "dni": 76871372,
+         "telefono": 975901372,
+         "tiempo_trabajando": 5,
+         "cargo": "Gerente",
+         "salario": 2_500
+    },
+    40: {
+         "nombre_completo": "Juan Leyva Calle",
+         "dni": 76871369,
+         "telefono": 975901555,
+         "tiempo_trabajando": 7,
+         "cargo": "Cajero",
+         "salario": 1_500
+    }
+}
 
 salario_dict = dict(
     Limpieza = 1_025,
@@ -189,14 +214,22 @@ def return_key_for_value(value_searched, dict_base):
         if element == value_searched:
             return key
 
+def mostrar_empleado_minimo_tiempo_1():
+    print(">>> ========== Empleado con menor tiempo en la empresa ==========")
+    elemento_menor_tiempo = min(registro_empleados.values(), key=lambda x: x["tiempo_trabajando"])
+    print(elemento_menor_tiempo)
+
 def mostrar_empleado_minimo_tiempo():
     print(">>> ========== Empleado con menor tiempo en la empresa ==========")
     empleados = registro_empleados.items() # Dict_items = (1: {...})
     auxiliar_id_hour = dict() # Creamos un diccionario auxiliar que usaremos para registrar un guardado del Id y la hora de manera directa
+    
     for id_empleado, empleado in  empleados:
         auxiliar_id_hour[id_empleado] = empleado["tiempo_trabajando"] # Agregamos los elementos al diccionario
+    
     hours_list = list(auxiliar_id_hour.values()) # Luego tendremos solo una lista de las horas de los empleados
     hora_minima = min(hours_list) # Calculamos el minimo valor de la lista de horas
+    
     if hours_list.count(hora_minima) > 1: # Para mostrar el resultado preguntamos si hay mas de un empleado con la hora minima
         list_id_minim_hours = [] # lista auxiliar para guardar Id's
         for aux_key, aux_value in auxiliar_id_hour.items(): # recorremos la lista para buscar los empleados con la hora minima

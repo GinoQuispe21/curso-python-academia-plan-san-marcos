@@ -23,7 +23,7 @@ def app():
             if option == 1:
                 mod_emp.visualizar_informacion_empleado()
             elif option == 2:
-                mod_emp.mostrar_empleado_minimo_tiempo()
+                mod_emp.mostrar_empleado_minimo_tiempo_1()
             elif option == 3:
                 mod_emp.actualiar_salario_empleado()
             else:
