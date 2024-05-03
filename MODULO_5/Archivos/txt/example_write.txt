@@ -1,0 +1,17 @@
+Primera linea
+Segunda Linea
+Tercera linea
+Soy la primera linea del writelines
+Soy la segunda linea del writelines
+Soy la tercera linea del writelines
+
+Gino
+Jorge
+Rodrigo
+Marcelo
+Juan
+Soy una nueva linea agregada por la apertura append
+Soy la segunda linea agregada por la apertura append
+1
+2
+3

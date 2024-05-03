@@ -1,0 +1,17 @@
+with open("MODULO_5/Archivos/txt/example.txt", mode = 'r') as stream_read:
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    line_read = stream_read.read(10)
+    print(line_read)
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    print(stream_read.read())
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    # Resetear puntero al inicio:
+    print("Reseteo del puntero")
+    stream_read.seek(0, 0)
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    print(stream_read.read())
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    print("Reseteo del puntero")
+    stream_read.seek(500,0)
+    print(f"Posicion actual del puntero: {stream_read.tell()}")
+    print(stream_read.read())
