@@ -1,6 +1,6 @@
-Alumno;Edad;Profesion;Correo;Nota1;Nota2
-Ñiñó Quispe Calixto;22;Ingeniero de Software;ginoqc@gmail.com;17;14
-Jose Eduadro Perez Guzman;30;Psicologo;joseepg@gmail.com;15;16
-Italo Paucar Diaz;25;Ingeniero Industrial;italopd@gmail.com;16;15
-Rodrigo Mazzarri Heranndez;29;Analista de datos;rodrigomh@gmail.com;20;19
-Hector Leyva Martinez;18;Ingeniero de Software;hectorlm@gmail.com;18;20
+Alumno;Edad;Profesion;Correo;Nota1;Nota2;Nota3
+Ñiñó Quispe Calixto;22;Ingeniero de Software;ginoqc@gmail.com;17.2;14;11
+Jose Eduadro Perez Guzman;30;Psicologo;joseepg@gmail.com;15;16;9
+Italo Paucar Diaz;25;Ingeniero Industrial;italopd@gmail.com;16;15.5;7
+Rodrigo Mazzarri Heranndez;29;Analista de datos;rodrigomh@gmail.com;20;19.1;13
+Hector Leyva Martinez;18;Ingeniero de Software;hectorlm@gmail.com;18;20;11

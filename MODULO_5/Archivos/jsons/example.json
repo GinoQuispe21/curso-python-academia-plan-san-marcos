@@ -1,0 +1,22 @@
+{
+    "nombre": "Gino",
+    "correo": "quispecalixtogino@gmail.com",
+    "subscrito": false,
+    "metodosPago": ["Visa", "MasterCard"],
+    "carritoCompra": [
+        {
+            "nombreProducto": "Mouse Logitech",
+            "precio": 200.0,
+            "moneda": "PEN",
+            "descuento": false,
+            "porcentajeDescuento": null
+        },
+        {
+            "nombreProducto": "Teclado Logitech",
+            "precio": 300.0,
+            "moneda": "PEN",
+            "descuento": true,
+            "porcentajeDescuento": 10
+        }
+    ]
+}
