@@ -7,7 +7,7 @@ contador = 0
 def onTap():
     global contador
     contador += 1
-    print(f"Valor de contador {contador}")
+    label.config(text = f"Contador: {contador}")
 
 button = tk.Button(
     master = window,
@@ -20,5 +20,13 @@ button = tk.Button(
     command = onTap
 )
 button.pack()
+
+label = tk.Label(
+    window,
+    text = "Contador: 0",
+    font = ("Arial", 20, "italic"),
+    fg = "green"
+)
+label.pack()
 
 window.mainloop()

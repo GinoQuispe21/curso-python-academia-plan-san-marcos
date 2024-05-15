@@ -18,7 +18,7 @@ label = tk.Label(
     image = photo,
     compound = "right" # posicion donde muestra mi imagen en relacion a mi label
 )
-label.pack(side="top")
+label.pack(side = "bottom")
 # label.grid(row = 0, column = 0)
 
 label1 = tk.Label(
@@ -31,7 +31,6 @@ label1 = tk.Label(
     border = 5,
     padx = 30, # horisontal
     pady = 20,
-    compound = "right" # posicion donde muestra mi imagen en relacion a mi label
 )
 label1.pack(side="right") # Pack coloca el widget y lo gestiona la ventana para su posicionamiento, por defecto es en la posicion top
 # label1.grid(row = 0, column = 1) # grid es la forma alternativa mas usada para colocar nuestros widgets en la ventana
