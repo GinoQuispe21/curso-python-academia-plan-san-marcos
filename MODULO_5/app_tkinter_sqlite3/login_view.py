@@ -7,7 +7,7 @@ window.geometry("700x600")
 window.resizable(width=False, height=False)
 window.config(bg = "lightgreen")
 
-service = ServiceDB(path = path_db)
+service = ServiceDB(path = path_db, mock = True)
 
 frame = tk.Frame(
     master = window,
@@ -19,6 +19,11 @@ frame.pack(expand = True, fill = "x", padx = 50)
 
 frame.columnconfigure(index = 0, weight = 1)
 frame.columnconfigure(index = 1, weight = 1)
+
+# variables de control para mis entrys
+
+email_variable = tk.StringVar()
+password_variable = tk.StringVar()
 
 label_title = tk.Label(
     master = frame,
@@ -39,7 +44,8 @@ entry_email = tk.Entry(
     master = frame,
     font = label_font,
     bg = "lightgray",
-    fg = "blue"
+    fg = "blue",
+    textvariable = email_variable
 ).grid(row = 1, column = 1, sticky = "w", padx = 10, pady = 10)
 
 
@@ -55,7 +61,8 @@ entry_password = tk.Entry(
     font = label_font,
     bg = "lightgray",
     fg = "blue",
-    show = "*"
+    show = "*",
+    textvariable = password_variable
 ).grid(row = 2, column = 1, sticky = "w", padx = 10, pady = 10)
 
 submit_button = tk.Button(
@@ -64,7 +71,12 @@ submit_button = tk.Button(
     font = button_font,
     fg = "white",
     bg = "green",
-    command = lambda: print("inicar sesion")
+    command = lambda: service.login(
+        window = window,
+        service = service,
+        email = email_variable.get(),
+        password = password_variable.get()
+    )
 ).grid(row = 3, column = 0, columnspan = 2, pady = 15)
 
 window.mainloop()
