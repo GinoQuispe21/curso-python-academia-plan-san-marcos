@@ -57,7 +57,7 @@
 - Conociendo Reflex y porque estudiarlo
 - Instalación y configuración de Reflex
 - Interpretación de la documentación oficial
-- Backend con Reflex
+- Consumo de backend/API con Reflex
 - Creando nuestra pagina web usando Reflex
 - Despliegue a la nube de nuestra pagina web
 - Proyecto Final, creando nuestra pagina web autobiográfica
