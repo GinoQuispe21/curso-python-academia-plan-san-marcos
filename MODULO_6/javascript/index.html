@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts.js"></script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre"">
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        function validateForm() {
+            let nombre = document.getElementById("nombre").value
+            //var a = 10
+            //var b = "10"
+            if (nombre === "") {
+                alert("El nombre es obligatorio")
+            } else {
+                alert("Tu nombre es: " + nombre)
+            }
+        }
+    </script>
+</body>
+</html>
