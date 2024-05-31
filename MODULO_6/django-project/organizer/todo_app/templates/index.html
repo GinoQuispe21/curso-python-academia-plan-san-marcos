@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti itaque modi ullam accusamus, libero eveniet
+    repudiandae a blanditiis magnam nam ducimus nihil? Provident unde labore facilis ad molestias voluptas fugit,
+    nam nulla? Obcaecati voluptatibus ex, ut aliquid dolores, aliquam odit doloribus autem totam vel commodi esse id
+    laborum minima dolorum reprehenderit vero minus ea architecto iusto illum, amet officiis quas recusandae. Odio
+    totam aperiam fuga, aliquid labore doloribus nostrum accusamus commodi veniam suscipit. Dolorem cupiditate
+    molestiae ratione, non temporibus nesciunt molestias excepturi doloremque voluptates, soluta sequi tenetur
+    blanditiis perspiciatis ad quisquam veritatis obcaecati maiores rerum unde voluptatibus fugit sint quos!</p>
+<hr>
+<form method="post" action="/">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Crear Tarea">
+</form>
+<hr>
+{% for task in tasks %}
+<div>
+    <p>{{ task.title }}</p>
+    <p>{{ task.description }}</p>
+    <p>{{ task.completed }}</p>
+    <p>{{ task.created_at }}</p>
+    <a href="/update_task/{{ task.id }}">Actualizar</a>
+    <a href="/delete_task/{{ task.id }}">Eliminar</a>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}
