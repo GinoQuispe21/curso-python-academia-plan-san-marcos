@@ -5,7 +5,7 @@ from . import models
 
 @admin.register(models.Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['name', 'teacher', 'credits']
+    list_display = ['name', 'user', 'teacher', 'credits']
 
 class TaskAdmin(admin.ModelAdmin):
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -17,6 +18,9 @@ class Course(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    # relacion de one to many con usuasrios
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
     
 
 class Task(models.Model):

@@ -142,3 +142,5 @@ STATIC_URL = 'static/'
 
 "Si no agregas a tus modelos la columna de id/PK Django te lo agregara automaticamente y de manera autoincrementada"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/login'

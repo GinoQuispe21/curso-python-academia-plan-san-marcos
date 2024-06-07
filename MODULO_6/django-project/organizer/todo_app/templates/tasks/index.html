@@ -21,6 +21,10 @@
     <input type="submit" value="Crear Tarea" class="btn-submit">
 </form>
 
+<h2>Lista de Taresa</h2>
+{% if tasks|length == 0 %}
+<p>No hay tareas registrados por el momento.</p>
+{% else %}
 {% for task in tasks %}
     {% if task.completed %}
     <div class="card-task completed">
@@ -50,5 +54,6 @@
     </div>
     {% endif %}
 {% endfor %}
+{% endif %}
 
 {% endblock %}

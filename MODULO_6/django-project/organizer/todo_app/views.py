@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, Http404
 from .models import Task, Course
 from .forms import TaskForm, CreateTaskForm, UpdateTaskForm, CreateCoursekForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -19,8 +20,10 @@ def json_tasks(request):
     tasks = list(Task.objects.values())
     return JsonResponse(tasks, safe = False)
 
+@login_required
 def index(request):
-    tasks = Task.objects.all().order_by('-created_at')
+    courses = Course.objects.filter(user = request.user)
+    tasks = Task.objects.filter(course__in = courses).order_by('-created_at')
     if request.method == "POST":
         courseId = request.POST['course']
         Task.objects.create(
@@ -31,11 +34,14 @@ def index(request):
         messages.success(request, "Tarea creada exitosamente!")
         return redirect('index')
     else:
+        form = CreateTaskForm()
+        courses = Course.objects.filter(user = request.user)
+        form.fields['course'].queryset = courses
         return render(
             request, 
             'tasks/index.html',
             {
-                'form': CreateTaskForm(),
+                'form': form,
                 'tasks': tasks
             }
         )
@@ -45,9 +51,13 @@ def index(request):
     # print(tasks)
     # print(tasks_values)
 
+@login_required
 def update_task(request, task_id):
     #task = Task.objects.get(id = task_id)
     task = get_object_or_404(Task, id = task_id)
+    user_courses = request.user.course_set.all()
+    if task.course not in user_courses:
+        raise Http404
     if request.method == "POST":
         form = UpdateTaskForm(request.POST)
         if form.is_valid():
@@ -67,6 +77,7 @@ def update_task(request, task_id):
                 'course': task.course
             }
         )
+        form.fields['course'].queryset = user_courses
         return render(
             request,
             'tasks/update_task.html',
@@ -74,9 +85,13 @@ def update_task(request, task_id):
                 'form': form
             }
         )
-    
+
+@login_required
 def delete_task(request, task_id):
     task = get_object_or_404(Task, id = task_id)
+    user_courses = request.user.course_set.all()
+    if task.course not in user_courses:
+        raise Http404
     if request.method == 'GET':
         return render(
             request,
@@ -89,10 +104,10 @@ def delete_task(request, task_id):
         task.delete()
         messages.success(request, 'Tarea eliminada correctamente!')
         return redirect('index')
-    
-def courses(request):
-    courses = Course.objects.all().order_by('-created_at')
 
+@login_required
+def courses(request):
+    courses = Course.objects.filter(user = request.user).order_by('-created_at')
     if request.method == "GET":
         return render(
             request,
@@ -109,7 +124,8 @@ def courses(request):
                 name = form.cleaned_data['name'],
                 description = form.cleaned_data['description'],
                 credits = form.cleaned_data['credits'],
-                teacher = form.cleaned_data['teacher']
+                teacher = form.cleaned_data['teacher'],
+                user = request.user
             )
         messages.success(request, 'Curso creado correctamente!')
         return redirect('courses')

@@ -1,15 +1,35 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.db import IntegrityError
 
 # Create your views here.
 
 def login_view(request):
+    if request.method == "POST":
+        user = authenticate(
+            request,
+            username = request.POST['username'],
+            password = request.POST['password']
+        )
+        if user is None:
+            messages.error(request, "Las credenciales no son validas, intente nuevamente!")
+            return __render_login_view(request) 
+        else:
+            login(request, user)
+            return redirect('index')
+    else:
+        return __render_login_view(request)
+    
+def __render_login_view(request):
     return render(
         request,
-        'login.html'
+        'login.html',
+        {
+            'form': AuthenticationForm()
+        }
     )
 
 def register_view(request):
@@ -40,3 +60,7 @@ def __render_register_view(request):
             'form': UserCreationForm()
         }
     )
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')

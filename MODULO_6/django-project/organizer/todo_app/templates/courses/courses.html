@@ -23,6 +23,9 @@
 </form>
 
 <h2>Lista de cursos: </h2>
+{% if courses|length == 0 %}
+<p>No hay cursos registrados por el momento.</p>
+{% else %}
 {% for course in courses %}
 <div class="card-course">
     <h3> {{ course.name }}</h3>
@@ -32,4 +35,5 @@
     <p> Fecha de creacion: {{ course.created_at }}</p>
 </div>
 {% endfor %}
+{% endif %}
 {% endblock %}
