@@ -15,21 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from todo_app import views
+from django.urls import path, include
 
 # url_base = http://127.0.0.1:8000/
 
 urlpatterns = [
     # Ejemplos de prueba
     path('admin/', admin.site.urls), # http://127.0.0.1:8000/admin/
-    path('hello_world', views.hello_world), # http://127.0.0.1:8000/hello_world
-    path('about', views.about), # http://127.0.0.1:8000/about
-    path('json_task', views.json_tasks ), # http://127.0.0.1:8000/json_task
-    # Aplicacion todo_app
-    path('', views.index), # url_base = http://127.0.0.1:8000/
-    path('update_task/<int:task_id>', views.update_task),
-    path('delete_task/<int:task_id>', views.delete_task)
+    path('', include('todo_app.urls')),
+    path('', include('authenticate_app.urls'))
 ]
 
 # request params : parametros de las consultas https

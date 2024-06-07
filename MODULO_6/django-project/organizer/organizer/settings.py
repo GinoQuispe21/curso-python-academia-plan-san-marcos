@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo_app.apps.TodoAppConfig'
+    'todo_app.apps.TodoAppConfig',
+    'authenticate_app.apps.AuthenticateAppConfig'
 ]
 
 "Configuracion de seguridad por defecto de Dajango para nuestros proyecto"

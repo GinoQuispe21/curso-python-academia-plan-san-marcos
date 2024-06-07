@@ -1,0 +1,17 @@
+<h2>Crear cuenta</h2>
+
+{% if messages %}
+<div class = "messages">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}">
+        <h3>{{ message }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Crear Usuario">
+</form>
