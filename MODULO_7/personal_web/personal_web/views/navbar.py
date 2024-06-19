@@ -52,7 +52,7 @@ def navbar():
             padding_y = "2em",
             padding_x = "3em",
         ),
-        border_bottom = border_bottom_spacer,
+        border_bottom = border_spacer,
         position = "sticky",
         top = "0px",
         z_index = "999",

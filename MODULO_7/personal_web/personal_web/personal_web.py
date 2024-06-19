@@ -9,14 +9,21 @@ def index():
             welcome_home(),
             align = "center",
             justify = "center",
-            margin_x = "5vw"
+            margin_x = "8.5vw"
         ),
         width = "100%"
     )
 
 app = rx.App(
+    theme= rx.theme(
+        appearance = "light"
+    ),
+    stylesheets=[
+        "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
+    ],
     style = {
+        "font_family": "Montserrat, sans-serif",
         "font_size": "13px"
     }
 )
-app.add_page(index)
+app.add_page(index, title = "Portafolio de Gino Quispe Calixto")

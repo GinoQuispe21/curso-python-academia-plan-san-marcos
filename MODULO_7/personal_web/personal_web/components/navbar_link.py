@@ -8,6 +8,6 @@ def navbar_link(text: str, id_scroll: str):
             style = text_could_hover
         ),
         text_decoration = "none",
-        color = Color.TEXT.value,
-        on_click = rx.scroll_to(id_scroll)
+        color = rx.color_mode_cond(light = "black", dark = "white"),
+        on_click = rx.scroll_to(id_scroll),
     )

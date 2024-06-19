@@ -1,4 +1,5 @@
 from enum import Enum
+import reflex as rx
 
 class Color(Enum):
 
@@ -17,6 +18,13 @@ class TextSizes(Enum):
     LINKS_TEXT = "1.2em"
     BODY_HOME_TEXT = "1.5em"
     SECTION_HEADING = "2.5em"
+    CARD_HEADER = "1.2em"
+    CARD_BODY = "1em"
+
+    HEADING_H1_MOBILE = "2em"
+    HEADING_H2_MOBILE = "1.5em"
+    HEADING_H3_MOBILE = "1.3em"
+    BODY_HOME_TEXT_MOBILE = "1.2em"
 
 heading_navbar = dict(
     weight = "bold",
@@ -36,10 +44,11 @@ text_could_hover = {
     "cursor": "pointer"
 }
 
-border_bottom_spacer = f"2px solid {Color.BACKGROUND_CONTENT.value}"
+color_border = rx.color_mode_cond(light = Color.BACKGROUND_CONTENT.value, dark = "#1F1F22")
+border_spacer = f"1px solid {color_border}"
 
 button_secondary_hover = {
-    "color": Color.TEXT.value,
+    "color": rx.color_mode_cond(light = "black", dark = "white"),
     "_hover": {
         "font_weight": "bold",
         "color": Color.TEXT_SECONDARY.value,
