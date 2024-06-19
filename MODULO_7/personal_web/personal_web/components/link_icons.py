@@ -5,7 +5,7 @@ def link_icons(icon_str: str, url: str, size: int):
         rx.icon(
             icon_str,
             size = size,
-            color = "black"
+            color = rx.color_mode_cond(light = "black", dark = "white")
         ),
         href = url,
         is_external = True

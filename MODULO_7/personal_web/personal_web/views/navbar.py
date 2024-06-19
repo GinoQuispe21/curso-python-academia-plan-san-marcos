@@ -8,18 +8,23 @@ def navbar():
     return rx.box(
         rx.desktop_only(
             rx.hstack(
-                rx.heading(
-                    const.USERNAME,
-                    style = heading_navbar,
-                    as_ = "h3"
+                rx.link(
+                    rx.heading(
+                        const.USERNAME,
+                        style = heading_navbar,
+                        as_ = "h3"
+                    ),
+                    href = "/"
                 ),
                 rx.hstack(
-                    navbar_link("Experencia", "/#"),
-                    navbar_link("Educacion", "/#"),
-                    navbar_link("Proyectos", "/#"),
-                    navbar_link("Sobre mi", "/#"),
+                    navbar_link("Experencia", "experience"),
+                    navbar_link("Educacion", "education"),
+                    navbar_link("Proyectos", "projects"),
+                    navbar_link("Sobre mi", "about_me"),
+                    rx.color_mode.button(),
                     justify = "end",
-                    spacing = "5"
+                    spacing = "5",
+                    align = "center"
                 ),
                 align_items = "center",
                 justify = "between",
@@ -29,20 +34,23 @@ def navbar():
         ),
         rx.mobile_and_tablet(
             rx.hstack(
-                rx.heading(
-                    const.USERNAME,
-                    style = heading_navbar,
-                    as_ = "h3"
+                rx.link(
+                    rx.heading(
+                        const.USERNAME,
+                        style = heading_navbar,
+                        as_ = "h3"
+                    ),
+                    href = "/"
                 ),
                 rx.menu.root(
                     rx.menu.trigger(
                         rx.icon("menu", size = 30)
                     ),
                     rx.menu.content(
-                        navbar_menu_item_link("Experiencia", "/#"),
-                        navbar_menu_item_link("Educacion", "/#"),
-                        navbar_menu_item_link("Proyectos", "/#"),
-                        navbar_menu_item_link("Sobre mi", "/#"),
+                        navbar_menu_item_link("Experiencia", "experience"),
+                        navbar_menu_item_link("Educacion", "education"),
+                        navbar_menu_item_link("Proyectos", "projects"),
+                        navbar_menu_item_link("Sobre mi", "about_me"),
                     ),
                     justify = "end"
                 ),
@@ -57,5 +65,5 @@ def navbar():
         top = "0px",
         z_index = "999",
         width = "100%",
-        background_color = Color.BACKGROUND
+        background_color = rx.color_mode_cond(light = "white", dark = "#111113")
     )

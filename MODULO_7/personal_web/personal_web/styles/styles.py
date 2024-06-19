@@ -24,7 +24,7 @@ class TextSizes(Enum):
     HEADING_H1_MOBILE = "2em"
     HEADING_H2_MOBILE = "1.5em"
     HEADING_H3_MOBILE = "1.3em"
-    BODY_HOME_TEXT_MOBILE = "1.2em"
+    BODY_HOME_TEXT_MOBILE = "1.3em"
 
 heading_navbar = dict(
     weight = "bold",
